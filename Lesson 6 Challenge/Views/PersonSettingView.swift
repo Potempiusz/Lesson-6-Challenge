@@ -12,7 +12,19 @@ struct PersonSettingView: View {
     @EnvironmentObject var model:PersonModel
     
     var body: some View {
-        Text("text")
+        
+        NavigationView {
+            
+            List {
+                
+                Toggle("Show name: ", isOn: $model.showName)
+                Toggle("Show company: ", isOn: $model.showCompany)
+                Toggle("Show address: ", isOn: $model.showAddress)
+                Toggle("Show years of experience: ", isOn: $model.showYOE)
+                
+            }
+            .navigationTitle("Display Preferences")
+        }
     }
 }
 

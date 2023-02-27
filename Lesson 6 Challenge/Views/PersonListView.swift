@@ -13,13 +13,33 @@ struct PersonListView: View {
     
     var body: some View {
     
+        NavigationView {
+            
             List(model.persons) { r in
                 
-                Text(r.name)
-                    .foregroundColor(Color.red)
+                VStack (alignment: .leading) {
+                    if model.showName == true
+                        {
+                        Text("Name: " + r.name)
+                    };
+                    if model.showCompany == true
+                    {
+                        Text("Company: " + r.address)
+                    };
+                    if model.showAddress == true
+                    {
+                        Text("Address: " + r.company)
+                    };
+                    if model.showYOE == true
+                    {
+                        Text("Years of experience: \(r.yearsOfExperience)")
+                    };
+                }
             }
         }
+        .navigationTitle("People")
     }
+}
 
 
 struct PersonListView_Previews: PreviewProvider {
